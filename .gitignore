@@ -1,0 +1,10 @@
+# Add any directories, files, or patterns you don't want to be tracked by version control
+.metadata
+*.php~
+/node_modules
+/static/gaf/*.swf
+/output
+/typings/globals
+/static/js/plugins.js
+/static/js/plugins.min.js
+/assets/gaf/*.swf

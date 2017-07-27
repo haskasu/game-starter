@@ -1,0 +1,9 @@
+ body {
+    overflow: hidden;
+    margin: 0;
+}
+
+@font-face {
+    font-family: 'ChunkFiveEx';
+    src: url('../font/Chunkfive Ex.ttf') format('truetype');
+}
