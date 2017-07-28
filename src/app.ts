@@ -1,8 +1,8 @@
 import { CallbackAction } from './actions/CallbackAction';
 import { PostTrigger } from './checks/PostTrigger';
 import { ClearRootAction } from './actions/ClearRootAction';
-import { CoverScreen } from './objs/CoverScreen';
-import { GameInterface } from './objs/GameInterface';
+import { CoverScreen } from './objects/CoverScreen';
+import { GameInterface } from './objects/GameInterface';
 import { CreateObjectAction } from './actions/CreateObjectAction';
 import { FW, Framework } from './framework/Framework';
 
