@@ -64,7 +64,8 @@ class WebpackConfig {
                 port: 3333,
                 historyApiFallback: true,
                 inline: true,
-                open: true
+                open: true,
+                openPage: ''
             },
             devtool: 'source-map'
         };

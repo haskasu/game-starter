@@ -133,10 +133,10 @@ export class Incident {
     this.disable();
     this._manager.removeIncident(this);
 
-    for(let action of this._actions) {
+    for (let action of this._actions) {
       action.dispose();
     }
-    for(let check of this._checks) {
+    for (let check of this._checks) {
       check.dispose();
     }
   }
@@ -157,7 +157,7 @@ export class Incident {
 }
 
 export class IncidentManager {
-  private _incidentMap:{[id:string] : Incident;} = {};
+  private _incidentMap: { [id: string]: Incident; } = {};
   private _incidents_needCheck: Array<Incident>;
 
   fw: Framework;
@@ -166,8 +166,8 @@ export class IncidentManager {
     this.fw = fw;
   }
 
-  public reset():void {
-    for(let incidentId in this._incidentMap) {
+  public reset(): void {
+    for (let incidentId in this._incidentMap) {
       this._incidentMap[incidentId].dispose();
     }
 
@@ -176,7 +176,7 @@ export class IncidentManager {
     this.fw.removeUpdateFunction(this, this.update);
   }
 
-  public createIncident(id: string, params = null): Incident {
+  public createIncident(id: string, params: IIncidentCreateParameters = null): Incident {
     var incident: Incident = new Incident(this, id, params);
     this._addIncident(incident);
     return incident;

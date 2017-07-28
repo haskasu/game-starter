@@ -26,6 +26,7 @@ function minifyPlugins() {
     return gulp.src([
         'assets/js/plugins/plugins-prepare.js',
         'assets/js/plugins/liquidfun.js',
+        'assets/js/plugins/pixi-filters.js',
         'assets/js/plugins/PixiGAFPlayer.js',
         'assets/js/plugins/pixi-sound.min.js',
         'assets/js/plugins/pixi-keyboard.js',
