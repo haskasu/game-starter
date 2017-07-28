@@ -1,5 +1,5 @@
 import { Framework } from "../Framework";
-import { CheckBase, ActionBase, TriggerBase } from "./IncidentElements";
+import { CheckBase, ActionBase, TriggerBase, IncidentElementBase } from "./IncidentElements";
 import { Message } from "../postOffice/PostOffice";
 import { ArrayUtil } from "../utils/ArrayUtil";
 
@@ -9,7 +9,7 @@ export interface IIncidentCreateParameters {
   repeatInterval?: number;
 }
 
-export class Incident {
+export class Incident extends IncidentElementBase {
   private _id: string = "";
 
   private _manager: IncidentManager;
@@ -28,19 +28,18 @@ export class Incident {
 
   private _checkInterval: number = 100;
 
-  private _params;
-
   static get TOPIC_TRIGGERED() {
     return "incidentTriggered";
   }
 
   constructor(manager: IncidentManager, id: string, params: IIncidentCreateParameters) {
+    super(params);
+
     if (typeof id !== "string" || !id) {
       throw new Error("incident must have a valid id");
     }
     this._manager = manager;
     this._id = id;
-    this._params = params || {};
 
     if (this._params.hasOwnProperty("checkInterval")) {
       this._checkInterval = this._params.checkInterval;

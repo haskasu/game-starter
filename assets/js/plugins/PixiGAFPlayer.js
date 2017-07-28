@@ -4306,8 +4306,10 @@ com_github_haxePixiGAF_display_GAFMovieClip.prototype = $extend(com_github_haxeP
 			}
 			if(this._config.get_namedParts() != null) {
 				var instanceName = this._config.get_namedParts().get(animationObjectConfig.get_instanceID());
-				if(instanceName != null && !Object.prototype.hasOwnProperty.call(this,instanceName)) {
-					this[this._config.get_namedParts().get(animationObjectConfig.get_instanceID())] = displayObject;
+				if(instanceName != null) {
+					if(!Object.prototype.hasOwnProperty.call(this,instanceName)) {
+						this[this._config.get_namedParts().get(animationObjectConfig.get_instanceID())] = displayObject;
+					}
 					displayObject.name = instanceName;
 				}
 			}
