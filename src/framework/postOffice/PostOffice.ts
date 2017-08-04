@@ -6,7 +6,7 @@ export class Message {
 
   private _date: Object = {};
 
-  constructor(_type: string, _data: Object) {
+  constructor(_type: string, _data: Object = null) {
     this._type = _type;
     this._date = _data || {};
   }

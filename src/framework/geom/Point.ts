@@ -10,4 +10,18 @@ export class Point extends PIXI.Point {
   public toB2Vec(): b2Vec2 {
     return new b2Vec2(this.x, this.y);
   }
+
+  public toString():string {
+    return "" + this.x + "," + this.y;
+  }
+
+  static fromString(str:String):Point {
+    if(str) {
+      var params:Array<string> = str.split(',');
+      if(params.length == 2) {
+        return new Point(parseFloat(params[0]), parseFloat(params[1]));
+      }
+    }
+    return null;
+  }
 }

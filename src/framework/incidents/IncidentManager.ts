@@ -176,7 +176,7 @@ export class IncidentManager {
     this.fw.removeUpdateFunction(this, this.update);
   }
 
-  public createIncident(id: string, params = null): Incident {
+  public createIncident(id: string, params:IIncidentCreateParameters = null): Incident {
     var incident: Incident = new Incident(this, id, params);
     this._addIncident(incident);
     return incident;

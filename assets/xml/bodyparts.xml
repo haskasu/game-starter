@@ -1,0 +1,220 @@
+<project>
+	<part type="upperbody">
+		<option frame="1">
+			<node part="head" position="-10,-30" />
+			<node part="lowerbody" position="-22,380" />
+		</option>
+		<option frame="2">
+			<node part="head" position="0,10" />
+			<node part="lowerbody" position="0,380" />
+		</option>
+		<option frame="3">
+			<node part="head" position="10,50" />
+			<node part="lowerbody" position="5,315" />
+		</option>
+		<option frame="4">
+			<node part="head" position="-20,35" />
+			<node part="lowerbody" position="0,380" />
+		</option>
+		<option frame="5">
+			<node part="head" position="0,10" />
+			<node part="lowerbody" position="-10,380" />
+		</option>
+		<option frame="6">
+			<node part="head" position="0,-10" />
+			<node part="lowerbody" position="-3,320" />
+		</option>
+		<option frame="7">
+			<node part="head" position="0,0" />
+			<node part="lowerbody" position="0,355" />
+		</option>
+		<option frame="8">
+			<node part="head" position="0,26" />
+			<node part="lowerbody" position="10,320" />
+		</option>
+	</part>
+
+	<part type="lowerbody">
+		<option frame="1">
+			<node part="shoesB" position="-53,530" />
+			<node part="shoesF" position="76,537" />
+		</option>
+		<option frame="2">
+			<node part="shoesB" position="-37,507" />
+			<node part="shoesF" position="51,513" />
+		</option>
+		<option frame="3">
+			<node part="shoesB" position="-20,600" />
+			<node part="shoesF" position="45,605" />
+		</option>
+		<option frame="4">
+			<node part="shoesB" position="-40,450" />
+			<node part="shoesF" position="60,450" />
+		</option>
+		<option frame="5">
+			<node part="shoesB" position="-50,580" />
+			<node part="shoesF" position="82,595" />
+		</option>
+		<option frame="6">
+			<node part="shoesB" position="-30,540" />
+			<node part="shoesF" position="58,545" />
+		</option>
+		<option frame="7">
+			<node part="shoesB" position="-30,530" />
+			<node part="shoesF" position="55,520" />
+		</option>
+		<option frame="8">
+			<node part="shoesB" position="-38,520" />
+			<node part="shoesF" position="50,520" />
+		</option>
+	</part>
+
+	<part type="head">
+		<option frame="1">
+			<node part="browB" position="-33,-116" />
+			<node part="browF" position="2,-116" />
+			<node part="eyeB" position="-38,-66" />
+			<node part="eyeF" position="3,-66" />
+			<node part="nose" position="-23,-52" />
+			<node part="mouth" position="-19,-6" />
+			<node part="ear" position="83,-52" />
+			<node part="hairB" position="7,-169" />
+			<node part="hairF" position="7,-169" />
+		</option>
+		<option frame="2">
+			<node part="browB" position="-46,-75" />
+			<node part="browF" position="-23,-75" />
+			<node part="eyeB" position="-48,-44" />
+			<node part="eyeF" position="-22,-44" />
+			<node part="nose" position="-36,-38" />
+			<node part="mouth" position="-37,10" />
+			<node part="ear" position="53,-29" />
+			<node part="hairB" position="-6,-185" />
+			<node part="hairF" position="-6,-185" />
+		</option>
+		<option frame="3">
+			<node part="browB" position="-55,-146" />
+			<node part="browF" position="-22,-146" />
+			<node part="eyeB" position="-48,-113" />
+			<node part="eyeF" position="-22,-113" />
+			<node part="nose" position="-39,-92" />
+			<node part="mouth" position="-32,-52" />
+			<node part="ear" position="40,-100" />
+			<node part="hairB" position="-14,-232" />
+			<node part="hairF" position="-14,-232" />
+		</option>
+		<option frame="4">
+			<node part="browB" position="-51,-123" />
+			<node part="browF" position="-21,-123" />
+			<node part="eyeB" position="-45,-91" />
+			<node part="eyeF" position="-21,-91" />
+			<node part="nose" position="-36,-78" />
+			<node part="mouth" position="-26,-42" />
+			<node part="ear" position="63,-64" />
+			<node part="hairB" position="4,-204" />
+			<node part="hairF" position="4,-204" />
+		</option>
+		<option frame="5">
+			<node part="browB" position="-39,-110" />
+			<node part="browF" position="-4,-110" />
+			<node part="eyeB" position="-40,-76" />
+			<node part="eyeF" position="-3,-76" />
+			<node part="nose" position="-26,-60" />
+			<node part="mouth" position="-20,-9" />
+			<node part="ear" position="60,-43" />
+			<node part="hairB" position="4,-178" />
+			<node part="hairF" position="4,-178" />
+		</option>
+		<option frame="6">
+			<node part="browB" position="-45,-83" />
+			<node part="browF" position="-19,-84" />
+			<node part="eyeB" position="-46,-51" />
+			<node part="eyeF" position="-18,-54" />
+			<node part="nose" position="-33,-36" />
+			<node part="mouth" position="-30,3" />
+			<node part="ear" position="45,-37" />
+			<node part="hairB" position="-11,-162" />
+			<node part="hairF" position="-11,-162" />
+		</option>
+		<option frame="7">
+			<node part="browB" position="-39,-107" />
+			<node part="browF" position="-3,-107" />
+			<node part="eyeB" position="-37,-77" />
+			<node part="eyeF" position="-1,-77" />
+			<node part="nose" position="-22,-64" />
+			<node part="mouth" position="-23,-19" />
+			<node part="ear" position="58,-49" />
+			<node part="hairB" position="6,-189" />
+			<node part="hairF" position="6,-189" />
+		</option>
+		<option frame="8">
+			<node part="browB" position="-49,-94" />
+			<node part="browF" position="-19,-94" />
+			<node part="eyeB" position="-46,-66" />
+			<node part="eyeF" position="-24,-66" />
+			<node part="nose" position="-38,-52" />
+			<node part="mouth" position="-32,-11" />
+			<node part="ear" position="48,-53" />
+			<node part="hairB" position="-1,-169" />
+			<node part="hairF" position="-1,-169" />
+		</option>
+	</part>
+
+	<part type="brow">
+		<option frame="1" />
+		<option frame="2" />
+		<option frame="3" />
+		<option frame="4" />
+		<option frame="5" />
+	</part>
+
+	<part type="hair">
+		<option frame="1" />
+		<option frame="2" />
+		<option frame="3" />
+		<option frame="4" />
+		<option frame="5" />
+	</part>
+
+	<part type="eye">
+		<option frame="1" />
+		<option frame="2" />
+		<option frame="3" />
+		<option frame="4" />
+		<option frame="5" />
+	</part>
+
+	<part type="ear">
+		<option frame="1" />
+		<option frame="2" />
+		<option frame="3" />
+		<option frame="4" />
+		<option frame="5" />
+	</part>
+
+	<part type="shoes">
+		<option frame="1" />
+		<option frame="2" />
+		<option frame="3" />
+		<option frame="4" />
+		<option frame="5" />
+	</part>
+
+	<part type="nose">
+		<option frame="1" />
+		<option frame="2" />
+		<option frame="3" />
+		<option frame="4" />
+		<option frame="5" />
+	</part>
+	<part type="mouth">
+		<option frame="1" />
+		<option frame="2" />
+		<option frame="3" />
+		<option frame="4" />
+		<option frame="5" />
+	</part>
+
+
+
+</project>
