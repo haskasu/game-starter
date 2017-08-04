@@ -1,5 +1,5 @@
 import { Framework } from "../Framework";
-import { CheckBase, ActionBase, TriggerBase } from "./IncidentElements";
+import { CheckBase, ActionBase, TriggerBase, IncidentElementBase } from "./IncidentElements";
 import { Message } from "../postOffice/PostOffice";
 import { ArrayUtil } from "../utils/ArrayUtil";
 
@@ -9,7 +9,7 @@ export interface IIncidentCreateParameters {
   repeatInterval?: number;
 }
 
-export class Incident {
+export class Incident extends IncidentElementBase {
   private _id: string = "";
 
   private _manager: IncidentManager;
@@ -28,19 +28,18 @@ export class Incident {
 
   private _checkInterval: number = 100;
 
-  private _params;
-
   static get TOPIC_TRIGGERED() {
     return "incidentTriggered";
   }
 
   constructor(manager: IncidentManager, id: string, params: IIncidentCreateParameters) {
+    super(params);
+
     if (typeof id !== "string" || !id) {
       throw new Error("incident must have a valid id");
     }
     this._manager = manager;
     this._id = id;
-    this._params = params || {};
 
     if (this._params.hasOwnProperty("checkInterval")) {
       this._checkInterval = this._params.checkInterval;
@@ -133,10 +132,10 @@ export class Incident {
     this.disable();
     this._manager.removeIncident(this);
 
-    for(let action of this._actions) {
+    for (let action of this._actions) {
       action.dispose();
     }
-    for(let check of this._checks) {
+    for (let check of this._checks) {
       check.dispose();
     }
   }
@@ -157,7 +156,7 @@ export class Incident {
 }
 
 export class IncidentManager {
-  private _incidentMap:{[id:string] : Incident;} = {};
+  private _incidentMap: { [id: string]: Incident; } = {};
   private _incidents_needCheck: Array<Incident>;
 
   fw: Framework;
@@ -166,8 +165,8 @@ export class IncidentManager {
     this.fw = fw;
   }
 
-  public reset():void {
-    for(let incidentId in this._incidentMap) {
+  public reset(): void {
+    for (let incidentId in this._incidentMap) {
       this._incidentMap[incidentId].dispose();
     }
 
@@ -176,7 +175,7 @@ export class IncidentManager {
     this.fw.removeUpdateFunction(this, this.update);
   }
 
-  public createIncident(id: string, params:IIncidentCreateParameters = null): Incident {
+  public createIncident(id: string, params: IIncidentCreateParameters = null): Incident {
     var incident: Incident = new Incident(this, id, params);
     this._addIncident(incident);
     return incident;

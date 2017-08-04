@@ -1,3 +1,5 @@
+import { MathUtil } from './../utils/MathUtil';
+
 export class GafLoaderInfo {
   path: string;
 
@@ -157,12 +159,27 @@ export class GafManager extends PIXI.utils.EventEmitter {
   }
 
   removeLocalTransform(gafObject) {
-    var tx: number = gafObject.transform.localTransform.tx;
-    var ty: number = gafObject.transform.localTransform.ty;
-    gafObject.transform.localTransform.tx = 0;
-    gafObject.transform.localTransform.ty = 0;
+    var ltf:PIXI.Matrix = gafObject.transform.localTransform;
+    var angle: number = Math.atan2(ltf.b, ltf.a);
+    var denom: number = ltf.a * ltf.a + ltf.b * ltf.b;
+    var sx: number = Math.sqrt(denom);
+    var sy: number = (ltf.a * ltf.d - ltf.b * ltf.c) / sx;
+
+    var tx: number = ltf.tx;
+    var ty: number = ltf.ty;
+    ltf.tx = 0;
+    ltf.ty = 0;
     gafObject.transform.position.x += tx;
     gafObject.transform.position.y += ty;
+
+    ltf.a = 1;
+    ltf.b = 0;
+    ltf.c = 0;
+    ltf.d = 1;
+
+    gafObject.transform.scale.x *= sx;
+    gafObject.transform.scale.y *= sy;
+    gafObject.rotation = MathUtil.radians2degrees(angle);
   }
 }
 
@@ -177,9 +194,9 @@ export class GafButton extends PIXI.utils.EventEmitter {
 
   private gafClip: GAF.GAFMovieClip;
 
-  private isdown: boolean = false;
+  private _isDown: boolean = false;
 
-  private isOver: boolean = false;
+  private _isOver: boolean = false;
 
   constructor(gafClip: GAF.GAFMovieClip) {
     super();
@@ -199,16 +216,24 @@ export class GafButton extends PIXI.utils.EventEmitter {
     return this.gafClip;
   }
 
+  public get isDown():boolean {
+    return this._isDown;
+  }
+
+  public get isOver():boolean {
+    return this._isOver;
+  }
+
   private onButtonDown() {
-    this.isdown = true;
+    this._isDown = true;
     this.gafClip.gotoAndStop(3);
     this.emit(GafButton.EVENT.DOWN);
   }
 
   private onButtonUp() {
-    var click: boolean = this.isdown;
-    this.isdown = false;
-    this.gafClip.gotoAndStop(this.isOver ? 2 : 1);
+    var click: boolean = this._isDown;
+    this._isDown = false;
+    this.gafClip.gotoAndStop(this._isOver ? 2 : 1);
     this.emit(GafButton.EVENT.UP);
     if (click) {
       this.emit(GafButton.EVENT.CLICK);
@@ -216,9 +241,9 @@ export class GafButton extends PIXI.utils.EventEmitter {
   }
 
   private onButtonOver() {
-    var wasOver:boolean = this.isOver;
-    this.isOver = true;
-    if (this.isdown) {
+    var wasOver:boolean = this._isOver;
+    this._isOver = true;
+    if (this._isDown) {
       return;
     }
     this.gafClip.gotoAndStop(2);
@@ -228,8 +253,8 @@ export class GafButton extends PIXI.utils.EventEmitter {
   }
 
   private onButtonOut() {
-    this.isOver = false;
-    if (this.isdown) {
+    this._isOver = false;
+    if (this._isDown) {
       return;
     }
     this.gafClip.gotoAndStop(1);
