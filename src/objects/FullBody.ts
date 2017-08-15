@@ -18,7 +18,7 @@ export class FullBody extends ObjectBase {
     constructor() {
         super();
         this.movieclip = FW.gafManager.createMovieClip('fullbody', 'lib_fullbody');
-        this.movieclip.scale.set(0.5, 0.5);
+        this.movieclip.scale.set(0.48, 0.48);
         this.movieclip.x += 100;
         FW.gafManager.removeLocalTransform(this.movieclip);
         FW.root.addChild(this.movieclip);
@@ -29,7 +29,7 @@ export class FullBody extends ObjectBase {
         }
 
         this.setBodyPart('upperbody', 1);
-        this.setSkinColor(0xFF0000);
+        this.setSkinColor(0xF4C496);
 
         this.movieclip.parent.interactive = true;
         this.dragControl = new DragControl(this.movieclip.parent);

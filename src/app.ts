@@ -1,4 +1,4 @@
-import { FullBody } from './objs/FullBody';
+import { FullBody } from './objects/FullBody';
 import { CallbackAction } from './actions/CallbackAction';
 import { PostTrigger } from './checks/PostTrigger';
 import { ClearRootAction } from './actions/ClearRootAction';

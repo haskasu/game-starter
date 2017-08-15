@@ -1,5 +1,5 @@
 import { ObjectBase } from './../framework/ObjectBase';
-import { FullBody } from './../objs/FullBody';
+import { FullBody } from './../objects/FullBody';
 import { ActionBase } from './../framework/incidents/IncidentElements';
 
 export class SetBodyPartAction extends ActionBase {
